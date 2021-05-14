@@ -7,9 +7,4 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   selectedCipher = 'caesar';
-
-  handleCipherChange(e: Event): void {
-    console.log(e.target);
-    console.log(this.selectedCipher);
-  }
 }

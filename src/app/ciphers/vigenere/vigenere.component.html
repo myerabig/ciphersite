@@ -1,3 +1,22 @@
 <div class="vigenere">
-  <p>vigenere here</p>
+  <div class="key-entry">
+    <label for="key">Key: </label>
+    <input id="key" type="text" size="50" [(ngModel)]="vigenereKey" (ngModelChange)="handleVigenereKeyChange()"/>
+  </div>
+  <div class="vigenere-flex">
+    <div>
+      <label for="encrypt">Encrypt:</label>
+      <br/>
+      <textarea id="encrypt" rows="10" cols="50" [(ngModel)]="vigenerePlaintext"
+                (ngModelChange)="handleVigenereEncryptionChange()"></textarea>
+    </div>
+    <img src="https://starpng.com/public/uploads/preview/double-sided-arrow-png-51575265495yriug9wtzm.png"
+         alt="double arrow" width="150px"/>
+    <div>
+      <label for="decrypt">Decrypt:</label>
+      <br/>
+      <textarea id="decrypt" rows="10" cols="50" [(ngModel)]="vigenereCiphertext"
+                (ngModelChange)="handleVigenereDecryptionChange()"></textarea>
+    </div>
+  </div>
 </div>
