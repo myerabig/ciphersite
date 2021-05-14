@@ -10,6 +10,7 @@ export class CaesarComponent implements OnInit {
   caesarOffset = 1;
   caesarPlaintext = '';
   caesarCiphertext = '';
+  showMath = false;
 
   constructor() {
   }
@@ -70,5 +71,9 @@ export class CaesarComponent implements OnInit {
     });
 
     this.caesarPlaintext = plaintext;
+  }
+
+  showCalculations(): void {
+    this.showMath = true;
   }
 }

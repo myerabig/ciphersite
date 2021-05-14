@@ -25,4 +25,11 @@
     fixed offset. For example, with an offset of 2, A becomes C, B becomes D, C becomes E, and so on.
     <a href="https://en.wikipedia.org/wiki/Caesar_cipher" target="_blank">Learn More!</a>
   </div>
+  <div>
+    <h4>Want to see the calculations?</h4>
+    <button (click)="showCalculations()">Click me for more details!</button>
+  </div>
+  <div class="calculations" *ngIf="showMath">
+    <h5 *ngFor="let char of caesarPlaintext.split(''); let i = index">{{char}} + {{caesarOffset}} => {{char.charCodeAt(0) - 65}} + {{caesarOffset}} = {{char.charCodeAt(0) - 65 + caesarOffset}} (mod 26) = {{caesarCiphertext.charAt(i)}}</h5>
+  </div>
 </div>
