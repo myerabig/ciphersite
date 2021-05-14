@@ -1,0 +1,23 @@
+<div class="caesar">
+  <div class="offset-entry">
+    <label for="offset">Offset (0-25): </label>
+    <input id="offset" type="number" size="4" min="0" max="25" step="1" value="1" [(ngModel)]="caesarOffset"
+           (ngModelChange)="handleCaesarOffsetChange()"/>
+  </div>
+  <div class="caesar-flex">
+    <div>
+      <label for="encrypt">Encrypt:</label>
+      <br/>
+      <textarea id="encrypt" rows="10" cols="50" [(ngModel)]="caesarPlaintext"
+                (ngModelChange)="handleCaesarEncryptionChange()"></textarea>
+    </div>
+    <img src="https://starpng.com/public/uploads/preview/double-sided-arrow-png-51575265495yriug9wtzm.png"
+         alt="double arrow" width="150px"/>
+    <div>
+      <label for="decrypt">Decrypt:</label>
+      <br/>
+      <textarea id="decrypt" rows="10" cols="50" [(ngModel)]="caesarCiphertext"
+                (ngModelChange)="handleCaesarDecryptionChange()"></textarea>
+    </div>
+  </div>
+</div>
