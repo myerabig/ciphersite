@@ -52,10 +52,10 @@ export class VigenereComponent implements OnInit {
     [...this.vigenerePlaintext].forEach(char => {
       if (char >= 'A' && char <= 'Z') {
         ciphertext += this.caesarEncrypt(char, this.keyNums[keyCount % this.keyNums.length]);
+        keyCount++;
       } else {
         ciphertext += char;
       }
-      keyCount++;
     });
 
     return ciphertext;

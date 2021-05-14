@@ -19,4 +19,12 @@
                 (ngModelChange)="handleVigenereDecryptionChange()"></textarea>
     </div>
   </div>
+  <div class="vigenere-explanation">
+    The Vigenère cipher is similar to the Caesar cipher in that each plaintext letter is shifted by a certain amount.
+    However, rather than that offset being fixed for every letter, the Vigenère cipher uses a keyword. Each letter in
+    the keyword represents a different shift amount. The first letter of plaintext is shifted by the first letter of the
+    keyword, the second letter of plaintext is shifted by the second letter of the keyword, and so on until the keyword
+    repeats. The keyword repeats until the end of the plaintext.
+    <a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher" target="_blank">Learn More!</a>
+  </div>
 </div>

@@ -1,3 +1,7 @@
+.vigenere {
+  text-align: center;
+}
+
 .vigenere-flex {
   display: flex;
   align-items: center;
@@ -5,6 +9,9 @@
 }
 
 .key-entry {
-  text-align: center;
   margin-bottom: 20px;
+}
+
+.vigenere-explanation {
+  margin: 50px 15% 0px 15%;
 }
