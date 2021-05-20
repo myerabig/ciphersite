@@ -27,9 +27,22 @@
   </div>
   <div>
     <h4>Want to see the calculations?</h4>
-    <button (click)="showCalculations()">Click me for more details!</button>
+    <button class="calcButton" (click)="showCalculations(true)">Show Details</button>
+    <button class="calcButton" (click)="showCalculations(false)">Hide Details</button>
   </div>
   <div class="calculations" *ngIf="showMath">
-    <h5 *ngFor="let char of caesarPlaintext.split(''); let i = index">{{char}} + {{caesarOffset}} => {{char.charCodeAt(0) - 65}} + {{caesarOffset}} = {{char.charCodeAt(0) - 65 + caesarOffset}} (mod 26) = {{caesarCiphertext.charAt(i)}}</h5>
+    <table>
+      <tr *ngFor="let char of caesarPlaintext.split(''); let i = index">
+        <td>{{char}}</td>
+        <td> + {{caesarOffset}} =></td>
+        <td>{{char.charCodeAt(0) - 65}}</td>
+        <td> + {{caesarOffset}} =</td>
+        <td>{{char.charCodeAt(0) - 65 + caesarOffset}}</td>
+        <td> (mod 26) = </td>
+        <td>{{caesarCiphertext.charCodeAt(i) - 65}}</td>
+        <td> = </td>
+        <td>{{caesarCiphertext.charAt(i)}}</td>
+      </tr>
+    </table>
   </div>
 </div>

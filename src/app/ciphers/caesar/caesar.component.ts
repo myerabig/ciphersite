@@ -73,7 +73,7 @@ export class CaesarComponent implements OnInit {
     this.caesarPlaintext = plaintext;
   }
 
-  showCalculations(): void {
-    this.showMath = true;
+  showCalculations(show: boolean): void {
+    this.showMath = show;
   }
 }
