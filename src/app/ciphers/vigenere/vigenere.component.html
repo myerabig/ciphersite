@@ -27,4 +27,27 @@
     repeats. The keyword repeats until the end of the plaintext.
     <a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher" target="_blank">Learn More!</a>
   </div>
+  <div>
+    <h4>Want to see the calculations?</h4>
+    <button class="calcButton" (click)="showCalculations(true)">Show Details</button>
+    <button class="calcButton" (click)="showCalculations(false)">Hide Details</button>
+  </div>
+  <div class="calculations" *ngIf="showMath">
+    <table class="calcTable">
+      <tr *ngFor="let char of vigenerePlaintext.split(''); let i = index;">
+        <td>{{char}}</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'"> + {{keyNums[i % keyNums.length]}} =></td>
+        <td *ngIf="char >= 'A' && char <= 'Z'">{{char.charCodeAt(0) - 65}}</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'"> + {{keyNums[i % keyNums.length]}} =</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'">{{char.charCodeAt(0) - 65 + keyNums[i % keyNums.length]}}</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'"> (mod 26) =</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'">{{vigenereCiphertext.charCodeAt(i) - 65}}</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'"> =</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'; else space">{{vigenereCiphertext.charAt(i)}}</td>
+        <ng-template #space>
+          <td class="space"></td>
+        </ng-template>
+      </tr>
+    </table>
+  </div>
 </div>

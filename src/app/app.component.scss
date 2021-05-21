@@ -27,11 +27,12 @@ label {
 }
 
 .toolbar {
+  grid-area: header;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  grid-area: header;
+  height: 5%;
   display: flex;
   align-items: center;
   background-color: black;

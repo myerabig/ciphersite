@@ -31,17 +31,20 @@
     <button class="calcButton" (click)="showCalculations(false)">Hide Details</button>
   </div>
   <div class="calculations" *ngIf="showMath">
-    <table>
-      <tr *ngFor="let char of caesarPlaintext.split(''); let i = index">
+    <table class="calcTable">
+      <tr *ngFor="let char of caesarPlaintext.split(''); let i = index;">
         <td>{{char}}</td>
-        <td> + {{caesarOffset}} =></td>
-        <td>{{char.charCodeAt(0) - 65}}</td>
-        <td> + {{caesarOffset}} =</td>
-        <td>{{char.charCodeAt(0) - 65 + caesarOffset}}</td>
-        <td> (mod 26) = </td>
-        <td>{{caesarCiphertext.charCodeAt(i) - 65}}</td>
-        <td> = </td>
-        <td>{{caesarCiphertext.charAt(i)}}</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'"> + {{caesarOffset}} =></td>
+        <td *ngIf="char >= 'A' && char <= 'Z'">{{char.charCodeAt(0) - 65}}</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'"> + {{caesarOffset}} =</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'">{{char.charCodeAt(0) - 65 + caesarOffset}}</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'"> (mod 26) =</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'">{{caesarCiphertext.charCodeAt(i) - 65}}</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'"> =</td>
+        <td *ngIf="char >= 'A' && char <= 'Z'; else space">{{caesarCiphertext.charAt(i)}}</td>
+        <ng-template #space>
+          <td class="space"></td>
+        </ng-template>
       </tr>
     </table>
   </div>

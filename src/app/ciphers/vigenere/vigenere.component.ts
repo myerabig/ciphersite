@@ -11,6 +11,7 @@ export class VigenereComponent implements OnInit {
   vigenerePlaintext = '';
   vigenereCiphertext = '';
   encrypt = true;
+  showMath = false;
 
   constructor() {
   }
@@ -87,5 +88,9 @@ export class VigenereComponent implements OnInit {
     this.encrypt = false;
     this.vigenereCiphertext = this.vigenereCiphertext.toUpperCase();
     this.vigenerePlaintext = this.vigenereDecrypt();
+  }
+
+  showCalculations(show: boolean): void {
+    this.showMath = show;
   }
 }
