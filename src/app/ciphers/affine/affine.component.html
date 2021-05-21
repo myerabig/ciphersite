@@ -1,0 +1,69 @@
+<div class="affine">
+  <div class="ab-entry">
+    <label for="aValue">a: </label>
+    <select name="a" id="aValue" [(ngModel)]="aValue">
+      <option>3</option>
+      <option>5</option>
+      <option>7</option>
+      <option>9</option>
+      <option>11</option>
+      <option>15</option>
+      <option>17</option>
+      <option>19</option>
+      <option>21</option>
+      <option>23</option>
+      <option>25</option>
+    </select>
+    <label for="bValue">b (0-25): </label>
+    <input id="bValue" type="number" size="4" min="0" max="25" step="1" value="1" [(ngModel)]="bValue"
+           (ngModelChange)="handleBValueChange()"/>
+  </div>
+  <div class="affine-flex">
+    <div>
+      <label for="encrypt">Encrypt:</label>
+      <br/>
+      <textarea id="encrypt" rows="10" cols="50" [(ngModel)]="affinePlaintext"
+                (ngModelChange)="handleAffineEncryptionChange()"></textarea>
+    </div>
+    <img src="https://starpng.com/public/uploads/preview/double-sided-arrow-png-51575265495yriug9wtzm.png"
+         alt="double arrow" width="150px"/>
+    <div>
+      <label for="decrypt">Decrypt:</label>
+      <br/>
+      <textarea id="decrypt" rows="10" cols="50" [(ngModel)]="affineCiphertext"
+                (ngModelChange)="handleAffineDecryptionChange()"></textarea>
+    </div>
+  </div>
+  <div class="affine-explanation">
+    The affine cipher uses a simple equation, ax + b (mod 26), to convert each letter (x) into a different letter. Due
+    to the nature of the encryption equation, decryption requires a modular inverse.
+    <a href="https://en.wikipedia.org/wiki/Affine_cipher" target="_blank">Learn More!</a>
+  </div>
+    <div>
+      <h4>Want to see the calculations?</h4>
+      <button class="calcButton" (click)="showCalculations(true)">Show Details</button>
+      <button class="calcButton" (click)="showCalculations(false)">Hide Details</button>
+    </div>
+    <div class="calculations" *ngIf="showMath">
+      <table class="calcTable">
+        <tr *ngFor="let char of affinePlaintext.split(''); let i = index;">
+          <td>{{char}}</td>
+          <td *ngIf="char >= 'A' && char <= 'Z'">: </td>
+          <td *ngIf="char >= 'A' && char <= 'Z'">({{aValue}} * </td>
+          <td *ngIf="char >= 'A' && char <= 'Z'">{{char}}</td>
+          <td *ngIf="char >= 'A' && char <= 'Z'"> + {{bValue}}) (mod 26) => </td>
+          <td *ngIf="char >= 'A' && char <= 'Z'">({{aValue}} * </td>
+          <td *ngIf="char >= 'A' && char <= 'Z'">{{char.charCodeAt(0) - 65}}</td>
+          <td *ngIf="char >= 'A' && char <= 'Z'"> + {{bValue}}) (mod 26) = </td>
+          <td *ngIf="char >= 'A' && char <= 'Z'">{{this.aValue * (char.charCodeAt(0) - 65) + this.bValue}}</td>
+          <td *ngIf="char >= 'A' && char <= 'Z'"> (mod 26) = </td>
+          <td *ngIf="char >= 'A' && char <= 'Z'">{{(this.aValue * (char.charCodeAt(0) - 65) + this.bValue) % 26}}</td>
+          <td *ngIf="char >= 'A' && char <= 'Z'"> = </td>
+          <td *ngIf="char >= 'A' && char <= 'Z'; else space">{{affineCiphertext.charAt(i)}}</td>
+          <ng-template #space>
+            <td class="space"></td>
+          </ng-template>
+        </tr>
+      </table>
+    </div>
+</div>

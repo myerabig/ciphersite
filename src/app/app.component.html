@@ -9,6 +9,10 @@
   </div>
   <div class="cipher-select">
     <div>
+      <label for="affine">Affine</label>
+      <input id="affine" type="radio" name="cipher" value="affine" [(ngModel)]="selectedCipher"/>
+    </div>
+    <div>
       <label for="caesar">Caesar</label>
       <input id="caesar" type="radio" name="cipher" value="caesar" [(ngModel)]="selectedCipher"/>
     </div>
@@ -18,6 +22,7 @@
     </div>
   </div>
   <div class="selection">
+    <app-affine *ngIf="selectedCipher === 'affine'"></app-affine>
     <app-caesar *ngIf="selectedCipher === 'caesar'"></app-caesar>
     <app-vigenere *ngIf="selectedCipher === 'vigenere'"></app-vigenere>
   </div>
