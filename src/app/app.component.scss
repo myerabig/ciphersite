@@ -15,8 +15,8 @@ html, body {
 
 .app {
   display: grid;
-  grid-template-columns: 20% 80%;
-  grid-template-rows: 4% 96%;
+  grid-template-columns: 15% 85%;
+  grid-template-rows: 30px auto;
   grid-template-areas:
     "header header"
     "sidebar main";
@@ -28,11 +28,12 @@ label {
 
 .toolbar {
   grid-area: header;
-  position: absolute;
+  overflow: hidden;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 5%;
+  width: 100%;
+  height: 40px;
   display: flex;
   align-items: center;
   background-color: black;
@@ -50,6 +51,22 @@ label {
   background-color: #f1f1f1;
   min-height: 90vh;
   padding: 10px;
+  color: black;
+}
+
+.tab {
+  padding: 10px;
+}
+
+.tab:hover {
+  background-color: #b9babd;
+  cursor: pointer;
+}
+
+.active-tab {
+  padding: 10px;
+  background-color: #505152;
+  color: white;
 }
 
 .selection {

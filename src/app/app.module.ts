@@ -7,13 +7,15 @@ import {FormsModule} from '@angular/forms';
 import { CaesarComponent } from './ciphers/caesar/caesar.component';
 import { VigenereComponent } from './ciphers/vigenere/vigenere.component';
 import { AffineComponent } from './ciphers/affine/affine.component';
+import { HillComponent } from './ciphers/hill/hill.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CaesarComponent,
     VigenereComponent,
-    AffineComponent
+    AffineComponent,
+    HillComponent
   ],
   imports: [
     BrowserModule,

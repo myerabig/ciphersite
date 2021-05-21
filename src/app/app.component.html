@@ -8,22 +8,15 @@
     <span>CipherSite</span>
   </div>
   <div class="cipher-select">
-    <div>
-      <label for="affine">Affine</label>
-      <input id="affine" type="radio" name="cipher" value="affine" [(ngModel)]="selectedCipher"/>
-    </div>
-    <div>
-      <label for="caesar">Caesar</label>
-      <input id="caesar" type="radio" name="cipher" value="caesar" [(ngModel)]="selectedCipher"/>
-    </div>
-    <div>
-      <label for="vigenere">Vigenère</label>
-      <input id="vigenere" type="radio" name="cipher" value="vigenere" [(ngModel)]="selectedCipher"/>
-    </div>
+    <div [ngClass]="selectedCipher === 'affine' ? 'active-tab' : 'tab'" (click)="selectedCipher = 'affine'">Affine</div>
+    <div [ngClass]="selectedCipher === 'caesar' ? 'active-tab' : 'tab'" (click)="selectedCipher = 'caesar'">Caesar</div>
+    <div [ngClass]="selectedCipher === 'hill' ? 'active-tab' : 'tab'" (click)="selectedCipher = 'hill'">Hill</div>
+    <div [ngClass]="selectedCipher === 'vigenere' ? 'active-tab' : 'tab'" (click)="selectedCipher = 'vigenere'">Vigenère</div>
   </div>
   <div class="selection">
     <app-affine *ngIf="selectedCipher === 'affine'"></app-affine>
     <app-caesar *ngIf="selectedCipher === 'caesar'"></app-caesar>
+    <app-hill *ngIf="selectedCipher === 'hill'"></app-hill>
     <app-vigenere *ngIf="selectedCipher === 'vigenere'"></app-vigenere>
   </div>
 </div>
