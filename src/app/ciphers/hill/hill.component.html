@@ -1,28 +1,28 @@
-<div class="caesar">
+<div class="hill">
   <div class="key-entry">
     <label for="key">Key: </label>
     <input id="key" type="text" size="50" [(ngModel)]="hillKeyword" (ngModelChange)="handleHillKeyChange()"/>
   </div>
-<!--  <div class="caesar-flex">-->
-<!--    <div>-->
-<!--      <label for="encrypt">Encrypt:</label>-->
-<!--      <br/>-->
-<!--      <textarea id="encrypt" rows="10" cols="50" [(ngModel)]="caesarPlaintext"-->
-<!--                (ngModelChange)="handleCaesarEncryptionChange()"></textarea>-->
-<!--    </div>-->
-<!--    <img src="https://starpng.com/public/uploads/preview/double-sided-arrow-png-51575265495yriug9wtzm.png"-->
-<!--         alt="double arrow" width="150px"/>-->
-<!--    <div>-->
-<!--      <label for="decrypt">Decrypt:</label>-->
-<!--      <br/>-->
-<!--      <textarea id="decrypt" rows="10" cols="50" [(ngModel)]="caesarCiphertext"-->
-<!--                (ngModelChange)="handleCaesarDecryptionChange()"></textarea>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="caesar-explanation">-->
-<!--    The Caesar cipher, named after Julius Caesar, is a simple cipher in which each plaintext letter is shifted by a-->
+  <div class="hill-flex">
+    <div>
+      <label for="encrypt">Encrypt:</label>
+      <br/>
+      <textarea id="encrypt" rows="10" cols="50" [(ngModel)]="hillPlaintext"
+                (ngModelChange)="handleHillEncryptionChange()"></textarea>
+    </div>
+    <img src="https://starpng.com/public/uploads/preview/double-sided-arrow-png-51575265495yriug9wtzm.png"
+         alt="double arrow" width="150px"/>
+    <div>
+      <label for="decrypt">Decrypt:</label>
+      <br/>
+      <textarea id="decrypt" rows="10" cols="50" [(ngModel)]="hillCiphertext"
+                (ngModelChange)="handleHillDecryptionChange()"></textarea>
+    </div>
+  </div>
+<!--  <div class="hill-explanation">-->
+<!--    The hill cipher, named after Julius hill, is a simple cipher in which each plaintext letter is shifted by a-->
 <!--    fixed offset. For example, with an offset of 2, A becomes C, B becomes D, C becomes E, and so on.-->
-<!--    <a href="https://en.wikipedia.org/wiki/Caesar_cipher" target="_blank">Learn More!</a>-->
+<!--    <a href="https://en.wikipedia.org/wiki/hill_cipher" target="_blank">Learn More!</a>-->
 <!--  </div>-->
 <!--  <div>-->
 <!--    <h4>Want to see the calculations?</h4>-->
@@ -31,16 +31,16 @@
 <!--  </div>-->
 <!--  <div class="calculations" *ngIf="showMath">-->
 <!--    <table class="calcTable">-->
-<!--      <tr *ngFor="let char of caesarPlaintext.split(''); let i = index;">-->
+<!--      <tr *ngFor="let char of hillPlaintext.split(''); let i = index;">-->
 <!--        <td>{{char}}</td>-->
-<!--        <td *ngIf="char >= 'A' && char <= 'Z'"> + {{caesarOffset}} =></td>-->
+<!--        <td *ngIf="char >= 'A' && char <= 'Z'"> + {{hillOffset}} =></td>-->
 <!--        <td *ngIf="char >= 'A' && char <= 'Z'">{{char.charCodeAt(0) - 65}}</td>-->
-<!--        <td *ngIf="char >= 'A' && char <= 'Z'"> + {{caesarOffset}} =</td>-->
-<!--        <td *ngIf="char >= 'A' && char <= 'Z'">{{char.charCodeAt(0) - 65 + caesarOffset}}</td>-->
+<!--        <td *ngIf="char >= 'A' && char <= 'Z'"> + {{hillOffset}} =</td>-->
+<!--        <td *ngIf="char >= 'A' && char <= 'Z'">{{char.charCodeAt(0) - 65 + hillOffset}}</td>-->
 <!--        <td *ngIf="char >= 'A' && char <= 'Z'"> (mod 26) =</td>-->
-<!--        <td *ngIf="char >= 'A' && char <= 'Z'">{{caesarCiphertext.charCodeAt(i) - 65}}</td>-->
+<!--        <td *ngIf="char >= 'A' && char <= 'Z'">{{hillCiphertext.charCodeAt(i) - 65}}</td>-->
 <!--        <td *ngIf="char >= 'A' && char <= 'Z'"> =</td>-->
-<!--        <td *ngIf="char >= 'A' && char <= 'Z'; else space">{{caesarCiphertext.charAt(i)}}</td>-->
+<!--        <td *ngIf="char >= 'A' && char <= 'Z'; else space">{{hillCiphertext.charAt(i)}}</td>-->
 <!--        <ng-template #space>-->
 <!--          <td class="space"></td>-->
 <!--        </ng-template>-->
